@@ -113,9 +113,15 @@ export default new Router({
 
 ### 使用
 
-`store.js`数据存储
+`store.js`数据状态变更文件，默认格式
 
 ```javascript
+import Vue from 'vue'
+import Vuex from 'vuex'
+
+// 给vue对象绑定Vuex组件
+Vue.use(Vuex)
+
 export default new Vuex.Store({
 // 组件状态，集中管理
   state: {
@@ -131,11 +137,11 @@ export default new Vuex.Store({
 })
 ```
 
-（1）在vue中实现组件间状态传递
+（1）vue中添加事件
 
 ```html
-// Info.vue
-// 添加按钮，触发事件
+<!-- Info.vue -->
+<!-- 添加按钮，触发事件 -->
 <button type="button" @click="add()">添加</button>
 ```
 ```javascript
@@ -149,3 +155,71 @@ export default {
   }
 }
 ```
+
+(2)在Info组件中使用vuex，实现组件间状态传递
+
+```javascript
+// store.js中定义状态变更事件
+export default new Vuex.Store({
+  state: {
+    // 定义变量，组件中公用的状态
+    count: 0
+  },
+  mutations: {
+    // 定义改变状态的方法
+    increase () {
+      this.state.count++
+    }
+  },
+  actions: {
+  }
+})
+```
+
+```javascript
+// Info.vue中引入store.js, @符号表示src目录
+import store from '@/store'
+export default {
+  name: 'info',
+  // 引入store
+  store,
+  methods: {
+    add () {
+      console.log('add Event from info');
+      // 触发vuex的mutations事件，提交组件状态的修改
+      store.commit('increase)
+    }
+  }
+}
+```
+
+实现效果（借助chrome插件vue DevTools）
+![](http://ww1.sinaimg.cn/large/005EgYNMly1g0se98lh7dj31rw0u0420.jpg)
+
+（3）将Info.vue组件中`count`的值传递到About.vue中
+
+```html
+<templete>
+   <p>{{zqunor}}</p>
+   <p>{{msg}}</p>
+</templete>
+
+<!-- About.vue中引入store.js, @符号表示src目录 -->
+<script>
+import store from '@/store'
+export default {
+    name: 'about',
+    store,
+    data () {
+        return {
+            zqunor: store.state.count,
+            msg: ++store.state.count
+        }
+    }
+}
+</script>
+```
+
+浏览器查看，可观察到info中点击事件，变更count值后，切换到About页面的时候，也会显示info中count对应的值
+
+![](https://ws1.sinaimg.cn/large/005EgYNMly1g0sesoo2k1j322m0uedkr.jpg)

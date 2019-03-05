@@ -5,12 +5,14 @@
   </div>
 </template>
 <script>
-
+import store from '@/store'
 export default {
-  name: 'info',
+  name: 'Info',
+  store,
   methods: {
     add () {
       console.log('add Event from info');
+      store.commit('increase')
     }
   }
 }
