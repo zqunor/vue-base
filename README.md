@@ -1,5 +1,7 @@
 # vue入门
 
+学习资源 1.慕课网 https://www.imooc.com/learn/1091
+
 ## 入门准备
 ```bash
 # 安装node、npm、vue、vue-cli
