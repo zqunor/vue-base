@@ -187,7 +187,7 @@ export default {
     add () {
       console.log('add Event from info');
       // 触发vuex的mutations事件，提交组件状态的修改
-      store.commit('increase)
+      store.commit('increase')
     }
   }
 }

@@ -11,7 +11,7 @@ export default {
   store,
   methods: {
     add () {
-      console.log('add Event from info');
+      console.log('add Event from info')
       store.commit('increase')
     }
   }

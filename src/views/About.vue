@@ -8,13 +8,13 @@
 <script>
 import store from '@/store'
 export default {
-    name: 'about',
-    store,
-    data () {
-        return {
-            zqunor: store.state.count,
-            msg: ++store.state.count
-        }
+  name: 'about',
+  store,
+  data () {
+    return {
+      zqunor: store.state.count,
+      msg: ++store.state.count
     }
+  }
 }
 </script>
