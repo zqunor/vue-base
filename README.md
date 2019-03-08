@@ -42,7 +42,7 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-## 应用小实例
+## 基本使用语法
 
 ### 引入新页面
 
@@ -223,3 +223,49 @@ export default {
 浏览器查看，可观察到info中点击事件，变更count值后，切换到About页面的时候，也会显示info中count对应的值
 
 ![](https://ws1.sinaimg.cn/large/005EgYNMly1g0sesoo2k1j322m0uedkr.jpg)
+
+### 调试
+
+1.Vue的chrome插件`Vue DevTools`
+
+[chrome网上应用商店入口](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
+
+2.常用的语法：`console.log` `alert` `debuger`
+
+`debuger`会设置成断点，这样运行时就可以在浏览器的console面板中输出需要调试的变量
+
+3.定义全局变量，直接在console面板输出需要调试的变量的值
+
+```javascript
+// vue的生命周期，组件挂载完成之后会执行该方法
+mounted () {
+  // 代表windows.vue代表this所在文件的组件
+  windows.vue = this
+}
+```
+
+### Git版本管理
+
+(1) 回退版本
+
+1) 回退到上一次提交之前
+```bash
+git reset --hard head^
+```
+
+
+2) 回退错了，要撤销回退
+```bash
+#查看所有提交历史（git log只能看到当前版本之前的提交，回退后就看不到回退前的提交历史了）
+git relog
+#然后再回退到相应版本
+git reset --hard HEAD@{1}
+```
+
+(2) 删除远程分支
+```bash
+#删除本地dev分支
+git branch -D dev
+#将本地dev分支的修改提交到远程
+git push origin :dev
+```

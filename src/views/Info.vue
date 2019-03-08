@@ -9,6 +9,11 @@ import store from '@/store'
 export default {
   name: 'Info',
   store,
+  data () {
+    return {
+      msg: 'hello vue'
+    }
+  },
   methods: {
     add () {
       console.log('add Event from info')
