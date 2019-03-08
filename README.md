@@ -269,3 +269,87 @@ git branch -D dev
 #将本地dev分支的修改提交到远程
 git push origin :dev
 ```
+
+## 应用Demo1
+
+1、需求描述
+
+```
+三个部分
+1.展示列表 （可以被点击选中）
+2.添加按钮 （将选中的列表元素添加到被展示列）
+3.展示被添加的列表  （选中的元素动态添加到这里）
+```
+
+2、实现效果
+![](https://ws1.sinaimg.cn/large/005EgYNMly1g0vwpbk3vqj30t80ns3zf.jpg)
+
+3、需求梳理
+
+(1)业务拆分
+- 展示列表
+  - 列表元素展示
+  - 点击事件
+    - 点击后改变背景色
+    - 获取点击的元素值
+- 按钮
+  - 按钮元素
+  - 点击事件
+    - 获取被点击元素的值
+- 被添加列表
+  - 数组
+  - 追加被点击的元素
+
+(2)元素|方法定义
+
+变量：
+- 被点击元素索引值
+- 展示列表（数组）
+- 被添加列表（数组）
+
+方法：
+- 元素选择事件
+- 按钮点击事件
+
+4、代码实现
+
+(1)创建组件`view/Demo.vue`，添加路由, 添加首页入口
+```javascript
+// router.js
+// 导入组件
+import Demo1 from './views/Demo1.vue'
+// 添加路由
+{
+  path: '/demo1',
+  name: 'demo1',
+  component: Demo1
+}
+```
+```html
+<!-- App.vue -->
+| <router-link to="/demo1">Demo1</router-link>
+```
+
+(2)定义模板
+
+```html
+<template>
+  <div>
+    <ul>
+      <li v-for="(item, index) in list"
+        :key="index">
+        {{item}}
+      </li>
+    </ul>
+  <button type="button" @click="add()">添加</button>
+  <ul>
+    <li v-for="(item, index) in target"
+      :key="index">
+      {{item}}
+    </li>
+    </ul>
+  </div>
+</template>
+```
+
+(3)增加样式（选中的元素的背景变化）

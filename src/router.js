@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Info from './views/Info.vue'
+import Demo1 from './views/Demo1.vue'
 
 Vue.use(Router)
 
@@ -24,6 +25,11 @@ export default new Router({
       path: '/info',
       name: 'info',
       component: Info
-    }
+    },
+    {
+      path: '/demo1',
+      name: 'demo1',
+      component: Demo1
+    },
   ]
 })
