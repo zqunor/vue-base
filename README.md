@@ -57,7 +57,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 **模板**：挂载点输出的内容，可以直接在挂载点内部编写，也可以通过template属性实现。
 
-> 示例代码1中div标签内部的`<h1>hello {{msg}}</h1>`和vue中的 ` template: '<h1>hello {{msg}}</h1>'` 效果一致
+> 示例代码1中div标签内部的`<h1>hello {{msg}}</h1>`和vue中的 `template: '<h1>hello {{msg}}</h1>'` 效果一致
 
 **实例**: 指定挂载点、指定模板、绑定数据后可以自动结合模板、数据生成最终要展示的内容，并放到挂载点之中
 
