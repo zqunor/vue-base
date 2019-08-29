@@ -106,6 +106,7 @@ export default new Vuex.Store({
 <!-- 添加按钮，触发事件 -->
 <button type="button" @click="add()">添加</button>
 ```
+
 ```javascript
 export default {
   name: 'info',
@@ -156,6 +157,7 @@ export default {
 ```
 
 实现效果（借助chrome插件vue DevTools）
+
 ![](http://ww1.sinaimg.cn/large/005EgYNMly1g0se98lh7dj31rw0u0420.jpg)
 
 （3）将Info.vue组件中`count`的值传递到About.vue中
@@ -246,11 +248,13 @@ git push origin :dev
 ```
 
 2、实现效果
+
 ![](https://ws1.sinaimg.cn/large/005EgYNMly1g0vwpbk3vqj30t80ns3zf.jpg)
 
 3、需求梳理
 
 (1)业务拆分
+
 - 展示列表
   - 列表元素展示
   - 点击事件
@@ -321,4 +325,3 @@ import Demo1 from './views/Demo1.vue'
 ```
 
 (3)增加样式（选中的元素的背景变化）
-
