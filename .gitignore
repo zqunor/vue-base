@@ -2,6 +2,9 @@
 node_modules
 /dist
 
+vue-ui/node_modules
+hello-world/node_modules
+
 # local env files
 .env.local
 .env.*.local
@@ -18,4 +21,4 @@ yarn-error.log*
 *.ntvs*
 *.njsproj
 *.sln
-*.sw?
+*.sw*
